@@ -2,21 +2,21 @@
 
 namespace homeWork4
 {
-    [Flags]
-    enum Colors : short
-    {
-        Black = 1,
-        Blue = 1 << 1,
-        Cyan = 1 << 2,
-        Grey = 1 << 3,
-        Green = 1 << 4,
-        Magenta = 1 << 5,
-        Red = 1 << 6,
-        White = 1 << 7,
-        Yellow = 1 << 8
-    }
     class Program
     {
+        [Flags]
+        enum Colors : short
+        {
+            Black = 0b0000_0000_0000_0001, //1
+            Blue = 0b0000_0000_0000_0001 << 1, //2
+            Cyan = 0b0000_0000_0000_0001 << 2, //4
+            Grey = 0b0000_0000_0000_0001 << 3, //8
+            Green = 0b0000_0000_0000_0001 << 4, //16
+            Magenta = 0b0000_0000_0000_0001 << 5, //32 
+            Red = 0b0000_0000_0000_0001 << 6, //64
+            White = 0b0000_0000_0000_0001 << 7,//128
+            Yellow = 0b0000_0000_0000_0001 << 8 //256
+        }
         static void Main(string[] args)
         {
             /*
@@ -26,24 +26,23 @@ namespace homeWork4
              * Выбор производится путём введения порядковых номеров этих цветов.
              * После завершения ввода программа выводит список любимых цветов, а также отдельно список нелюбимых цветов.
             */
-            Console.WriteLine($"List of colors:");
-            Console.WriteLine( $"{Colors.Black} - 1");
-            Console.WriteLine( $"{Colors.Blue} - 2");
-            Console.WriteLine( $"{Colors.Cyan} - 3");
-            Console.WriteLine( $"{Colors.Green} - 4");
-            Console.WriteLine( $"{Colors.Grey} - 5");
-            Console.WriteLine( $"{Colors.Magenta} - 6");
-            Console.WriteLine( $"{Colors.Red} - 7");
-            Console.WriteLine( $"{Colors.White} - 8");
-            Console.WriteLine( $"{Colors.Yellow} - 9");
-            Console.WriteLine("Enter the sequence numbers of the colors to add to your favorites: ");
+            Console.WriteLine($"Suggested color list: {Colors.Black} - 1 {Colors.Blue} - 2 {Colors.Cyan} - " +
+                $"4 {Colors.Green} - 8 {Colors.Grey} - 16 {Colors.Magenta}" +
+                $" - 32 {Colors.Red} - 64 {Colors.White} - 128 {Colors.Yellow} - 256");
             
-            var favoriteColor = Enum.GetValues(typeof(Colors));
+            var sum1 = Colors.Black | Colors.Blue | Colors.Cyan | Colors.Green | Colors.Grey 
+            | Colors.Magenta | Colors.Red | Colors.White | Colors.Yellow; 
+            
+            Console.WriteLine("Enter your favorite color number: ");
+            int favoritColor1 = int.Parse(Console.ReadLine());
+            int favoritColor2 = int.Parse(Console.ReadLine());  
+            int favoritColor3 = int.Parse(Console.ReadLine());  
+            int favoritColor4 = int.Parse(Console.ReadLine());
+            int sum = favoritColor1 + favoritColor2 + favoritColor3 + favoritColor4;
 
-            for (int i = 0; i <= 4; i++)
-            {
-                
-            }
+            var favoritColors = (Colors)sum;
+            Console.WriteLine($"List of favorite colors: {favoritColors}");
+            Console.WriteLine($"List of disliked colors: {sum1 ^ favoritColors}");           
         }
     }   
 }
