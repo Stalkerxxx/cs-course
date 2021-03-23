@@ -30,19 +30,17 @@ namespace homeWork4
                 $"4 {Colors.Green} - 8 {Colors.Grey} - 16 {Colors.Magenta}" +
                 $" - 32 {Colors.Red} - 64 {Colors.White} - 128 {Colors.Yellow} - 256");
             
-            var sum1 = Colors.Black | Colors.Blue | Colors.Cyan | Colors.Green | Colors.Grey 
+            var sum = Colors.Black | Colors.Blue | Colors.Cyan | Colors.Green | Colors.Grey 
             | Colors.Magenta | Colors.Red | Colors.White | Colors.Yellow; 
             
             Console.WriteLine("Enter your favorite color number: ");
-            int favoritColor1 = int.Parse(Console.ReadLine());
-            int favoritColor2 = int.Parse(Console.ReadLine());  
-            int favoritColor3 = int.Parse(Console.ReadLine());  
-            int favoritColor4 = int.Parse(Console.ReadLine());
-            int sum = favoritColor1 + favoritColor2 + favoritColor3 + favoritColor4;
-
-            var favoritColors = (Colors)sum;
-            Console.WriteLine($"List of favorite colors: {favoritColors}");
-            Console.WriteLine($"List of disliked colors: {sum1 ^ favoritColors}");           
+            Colors favoritColor = default;
+            for (int i = 0; i < 4; i++)
+            {
+                favoritColor |= (Colors)Enum.Parse(typeof(Colors), Console.ReadLine());
+            }
+            Console.WriteLine($"List of favorite colors: {favoritColor}");
+            Console.WriteLine($"List of disliked colors: {sum ^ favoritColor}");           
         }
     }   
 }
