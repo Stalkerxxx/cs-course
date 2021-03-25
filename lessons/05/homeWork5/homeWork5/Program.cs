@@ -23,13 +23,13 @@ namespace homeWork5
         { 
             Console.WriteLine("Enter the shape type from the list: ");
             Console.WriteLine($"{Shapes.Circle} - 1 {Shapes.Triangle} - 2 {Shapes.Rectangle} - 3");
-            int numberShapes = default;
+            Shapes numberShapes = default;
            
             for (int i = 0; i < 10; i++)
             {
                 try
                 {
-                    numberShapes = int.Parse(Console.ReadLine());
+                    numberShapes = (Shapes)Enum.Parse(typeof (Shapes), Console.ReadLine());
                     break;
                 }
                 catch (FormatException ex)
@@ -41,8 +41,8 @@ namespace homeWork5
 
             switch (numberShapes)
             {
-                case 1:
-                    Console.WriteLine($"{(Shapes)1} :");
+                case Shapes.Circle:
+                    Console.WriteLine("Circle: ");
                     Console.Write("Enter the diameter of the circle: ");
                     
                     double d = default;
@@ -52,6 +52,7 @@ namespace homeWork5
                         try
                         {
                             d = double.Parse(Console.ReadLine());
+
                             break;
                         }
                         catch (FormatException ex)
@@ -63,7 +64,8 @@ namespace homeWork5
                     
                     if (d < 0)
                     {
-                        throw new Exception("The diameter of the circle cannot be less than 0");
+                        Console.WriteLine("The diameter of the circle cannot be less than 0");
+                        break;
                     }
 
                     double circlePerimeter = Math.PI * d;
@@ -71,8 +73,8 @@ namespace homeWork5
                     Console.WriteLine($"The circumference = {Math.Round(circlePerimeter, 2)}");
                     Console.WriteLine($"The area of the circle = {Math.Round(circleArea, 2)}");
                     break;
-                case 2:
-                    Console.WriteLine($"{(Shapes)2} :");
+                case Shapes.Triangle:
+                    Console.WriteLine("Triangle");
                     Console.WriteLine("Enter the sides of the triangle:");
                     //double[] sides = new double [3]; // В качестве эксперимента ушел от объявления 3 переменных
                     //double sidesTriangle;
@@ -111,12 +113,14 @@ namespace homeWork5
 
                     if (a < 0 || b < 0 || c < 0)
                     {
-                        throw new Exception("The sides of a triangle cannot be less than 0");
+                        Console.WriteLine("The sides of a triangle cannot be less than 0");
+                        break;
                     }
 
                     if (a >= b + c || b >= a + c || c >= a + b)
                     {
-                        throw new Exception("The data does not match the definition of a triangle");
+                        Console.WriteLine("The data does not match the definition of a triangle");
+                        break;
                     }
 
                     double trianglePerimeter = a + b + c;
@@ -125,8 +129,8 @@ namespace homeWork5
                     Console.WriteLine($"The perimeter of the triangle = {trianglePerimeter}");
                     Console.WriteLine($"The area of the triangle = {triangleArea}");
                     break;
-                case 3:
-                    Console.WriteLine($"{(Shapes)3} :");
+                case Shapes.Rectangle:
+                    Console.WriteLine("Rectangle:");
                     Console.WriteLine("Enter the two sides of the rectangle:");
                     double aRectangle = default;
                     double bRectangle = default;
@@ -148,7 +152,8 @@ namespace homeWork5
 
                     if (aRectangle < 0 || bRectangle < 0)
                     {
-                        throw new Exception("The sides of a rectangle cannot be less than 0");
+                        Console.WriteLine("The sides of a rectangle cannot be less than 0");
+                        break;
                     }
 
                     double rectanglePerimeter = (aRectangle + bRectangle) * 2;
