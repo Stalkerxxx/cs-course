@@ -72,17 +72,10 @@ namespace homeWork6_2_
                     Console.WriteLine("The entered value exceeds the allowed value \nTry again");
                 }
             }
+           
+            double c = firstInstallment * dailyPercentage;
+            double numberOfDays = (desiredAmount - firstInstallment) / c;
 
-            double numberOfDays = default; 
-            try
-            {
-                double c = firstInstallment * dailyPercentage;
-                numberOfDays = (desiredAmount - firstInstallment) / c;
-            }
-            catch (DivideByZeroException)
-            {
-                Console.WriteLine("You can't divide by zero");
-            }
             Console.WriteLine($"The required number of days to accumulate the desired amount: {Math.Round(numberOfDays, 2)}");
         }
     }
