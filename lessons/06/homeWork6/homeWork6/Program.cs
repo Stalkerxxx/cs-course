@@ -14,6 +14,7 @@ namespace homeWork6
             {
                 try
                 {
+                    Console.Write("Enter natural number: ");
                     num = int.Parse(Console.ReadLine());
                     for (int j = 0; j < 10; j++)
                     {
@@ -35,28 +36,16 @@ namespace homeWork6
                 }
             }
 
-            for (int i = 0; i < 10; i++)
-            {
-                if (num < 0)
-                {
-                    Console.WriteLine("Enter a positive value");
-                    num = int.Parse(Console.ReadLine());
-                }
-            }
-
-
-            string str = num.ToString();
-            int[] arr = new int[str.Length];
+            int num1 = num;
             int sum = 0;
 
-            for (int j = 0; j < arr.Length; j++)
+            for (int i = 0; i < num1;)
             {
-                arr[j] = int.Parse(str[j].ToString());
-
-                if (arr[j] % 2 == 0)
+                if (num1 % 2 == 0)
                 {
                     sum++;
                 }
+                num1 /= 10;
             }
             Console.WriteLine($"The number {num} contains the following number of even digits: {sum}");
         }
