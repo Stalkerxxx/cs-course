@@ -16,13 +16,11 @@ namespace homeWork6
                 {
                     Console.Write("Enter natural number: ");
                     num = int.Parse(Console.ReadLine());
-                    for (int j = 0; j < 10; j++)
+
+                    if (num < 0)
                     {
-                        if (num < 0)
-                        {
-                            Console.WriteLine("Enter a positive value \nTry again");
-                            num = int.Parse(Console.ReadLine());
-                        }
+                        Console.WriteLine("Enter a positive value \nTry again");
+                        num = int.Parse(Console.ReadLine());
                     }
                     break;
                 }
@@ -34,12 +32,13 @@ namespace homeWork6
                 {
                     Console.WriteLine("The entered value exceeds the allowed value \nTry again");
                 }
+             
             }
 
             int num1 = num;
             int sum = 0;
 
-            for (int i = 0; i < num1;)
+            while (num1 > 0)
             {
                 if (num1 % 2 == 0)
                 {
