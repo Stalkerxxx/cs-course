@@ -20,7 +20,7 @@ namespace homeWork6
                     if (num < 0)
                     {
                         Console.WriteLine("Enter a positive value \nTry again");
-                        num = int.Parse(Console.ReadLine());
+                        continue;
                     }
                     break;
                 }
