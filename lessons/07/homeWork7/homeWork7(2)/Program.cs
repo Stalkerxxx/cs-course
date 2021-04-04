@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 
 namespace homeWork7_2_
 {
@@ -10,48 +11,46 @@ namespace homeWork7_2_
             //Программа должна спрашивать исходную строку до тех пор, пока пользователь не введет строку, содержащую печатные символы.
 
             string[] arrWords;
-            Char[] arrLetters;
-            string strReverse = default;
-            bool letters = default;
+            StringBuilder strReverse = default;
+            
+
 
             for (int k = 0; ; k++)
             {
                 Console.Write("Enter a string containing printable characters: ");
                 var str = Console.ReadLine();
-                arrWords = str.Split(' ', '\t', StringSplitOptions.RemoveEmptyEntries);
+                if (str == null)
+                {
+                    Console.Write("Enter a string containing printable characters: ");
+                    continue;
+                }
 
+                arrWords = str.Split(' ', '\t', StringSplitOptions.RemoveEmptyEntries);
+                
                 if (arrWords.Length == 0)
                 {
                     Console.WriteLine("You entered invalid string characters\nTry again");
                     continue;
                 }
-                
-                if (letters == false)
+
+                for (int i = 0; i < arrWords.Length; i++)
                 {
-                    for (int i = 0; i < arrWords.Length; i++)
+                    for (int j = 0; j < arrWords[i].Length; j++)
                     {
-
-                        for (int j = 0; j < arrWords[i].Length; j++)
-                        {
-                            arrLetters = arrWords[i].ToCharArray();
-                            letters = char.IsLetter(arrLetters[j]);
-                            Array.Reverse(arrLetters);
-                            strReverse = string.Join("", arrLetters);
-                        }
-
-                        if (letters == false)
-                        {
-                            Console.WriteLine("You entered invalid string characters\nTry again");
-                            continue;
-                        }
-                        Console.Write($"{strReverse.ToLower()} ");
-                        break;
+                        Array.Reverse(arrWords);
+                        char letters2 = char.Parse(arrWords[j]);
+                        strReverse = strReverse.Append(letters2);
                     }
-                    continue;
-                }
-                
+
+                    if (char.IsLetter(char.Parse(arrWords[i])) == false)
+                    {
+                        Console.WriteLine("You entered invalid string characters\nTry again");
+                        continue;
+                    }
+                    Console.Write($"{strReverse.ToString().ToLower()} ");
+                    break;
+                }  
                 break;
-                
             }
            
            // Console.Write("You will get the expression: ");
