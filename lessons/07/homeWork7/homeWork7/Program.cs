@@ -16,9 +16,17 @@ namespace homeWork7
             {
                 Console.Write("Enter a text consisting of at least 2 words: ");
                 string str = Console.ReadLine();
-                arr = str.Split(' ', '\t' , StringSplitOptions.RemoveEmptyEntries);
+
+                if (str == null)
+                {
+                    Console.Write("Enter a text consisting of at least 2 words: ");
+                    continue;
+                }
+
+                arr = str.Split(' ', '\t', StringSplitOptions.RemoveEmptyEntries);
                 if (arr.Length == 0 || arr.Length == 1)
                 {
+                    Console.Write("Enter a text consisting of at least 2 words: ");
                     continue;
                 }
                 break;
@@ -28,7 +36,7 @@ namespace homeWork7
 
             for (int i = 0; i < arr.Length; i++)
             {
-                if (arr[i].StartsWith("A"))
+                if (arr[i].StartsWith("A") || arr[i].StartsWith("a"))
                 {
                     counter++;
                 }
