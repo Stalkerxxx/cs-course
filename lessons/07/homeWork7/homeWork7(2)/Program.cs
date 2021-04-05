@@ -40,7 +40,7 @@ namespace homeWork7_2_
                     Console.WriteLine("Введите печатные символы");
                     continue;
                 }
-                Console.WriteLine(constructorLetters);
+                Console.WriteLine(constructorLetters.ToString().ToLower());
                 break;
             }
         }    
