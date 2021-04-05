@@ -10,56 +10,39 @@ namespace homeWork7_2_
             //Написать консольное приложение, которое запрашивает строку, а затем выводит все буквы приведенные к нижнему регистру в обратном порядке.
             //Программа должна спрашивать исходную строку до тех пор, пока пользователь не введет строку, содержащую печатные символы.
 
-            string[] arrWords;
-            StringBuilder strReverse = default;
             
+            bool str1 = default;
+            StringBuilder constructorLetters = new StringBuilder();
 
-
-            for (int k = 0; ; k++)
+            while (true)
             {
-                Console.Write("Enter a string containing printable characters: ");
+                Console.WriteLine("Введите строку: ");
                 var str = Console.ReadLine();
-                if (str == null)
-                {
-                    Console.Write("Enter a string containing printable characters: ");
-                    continue;
-                }
+                var arrWords = str.Split(" ", StringSplitOptions.RemoveEmptyEntries);
 
-                arrWords = str.Split(' ', '\t', StringSplitOptions.RemoveEmptyEntries);
-                
-                if (arrWords.Length == 0)
+                if (str == null || str.Length == 0)
                 {
-                    Console.WriteLine("You entered invalid string characters\nTry again");
+                    Console.WriteLine("Вы ввели пустую строку попробуйте еще раз");
                     continue;
                 }
 
                 for (int i = 0; i < arrWords.Length; i++)
                 {
-                    for (int j = 0; j < arrWords[i].Length; j++)
+                    for (int j = arrWords[i].Length - 1; j >= 0; j--)
                     {
-                        Array.Reverse(arrWords);
-                        char letters2 = char.Parse(arrWords[j]);
-                        strReverse = strReverse.Append(letters2);
+                        str1 = char.IsLetter(arrWords[i][j]);
+                        char str2 = arrWords[i][j];
+                        constructorLetters.Append(str2);
                     }
-
-                    if (char.IsLetter(char.Parse(arrWords[i])) == false)
-                    {
-                        Console.WriteLine("You entered invalid string characters\nTry again");
-                        continue;
-                    }
-                    Console.Write($"{strReverse.ToString().ToLower()} ");
-                    break;
-                }  
+                }
+                if (str1 == false)
+                {
+                    Console.WriteLine("Введите печатные символы");
+                    continue;
+                }
+                Console.WriteLine(constructorLetters);
                 break;
             }
-           
-           // Console.Write("You will get the expression: ");
-
-            
-            Console.WriteLine("");
-            Console.WriteLine("Press any key to exit.");
-            Console.ReadKey();
-
-        }
+        }    
     }
 }
