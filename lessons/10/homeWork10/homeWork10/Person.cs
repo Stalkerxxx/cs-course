@@ -1,15 +1,53 @@
-﻿namespace homeWork10
+﻿using System;
+namespace homeWork10
 {
     class Person 
     {
-        public string Name { get; set; } 
-        public byte Age { get; set; }
-        public byte AgeFourYears() 
+        public string NameUser { get; set; }
+        public byte AgeUser { get; set; }
+
+        public string Name()
         {
-            var age = (byte)(Age + 4);
-            return age;
+            
+            while (true)
+            {
+                Console.WriteLine("Enter the name of the user: ");
+                NameUser = Console.ReadLine();
+                if (NameUser == "" || NameUser == null)
+                {
+                    Console.WriteLine("You entered an empty string");
+                    continue;
+                }
+                break;
+            }
+            return NameUser;
         }
+        public byte Age()
+        {
+            while (true)
+            {
+                Console.WriteLine("Enter the age of the user:");
+                try
+                {
+                    AgeUser = byte.Parse(Console.ReadLine());
+                }
+                catch (OverflowException)
+                {
+                    Console.WriteLine("You entered too many number \n Try again");
+                    continue;
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("You entered not a number \n Try again");
+                    continue;
+                }
+                break;
+            }
+            return AgeUser;
+        }
+        public byte AgeFourYears => AgeUser = (byte)(AgeUser + 4);
         public string Discription =>
-            $"{Name} will be born in four years: {AgeFourYears()}";
+            $"{NameUser} will be born in four years: {AgeFourYears}";
+
     }
 }
