@@ -10,6 +10,6 @@
             return age;
         }
         public string Discription =>
-            $"{Name} will be born in four years: {Age + 4}";
+            $"{Name} will be born in four years: {AgeFourYears()}";
     }
 }
