@@ -6,12 +6,11 @@ namespace homeWork10
     {
         static void Main(string[] args)
         {
-
+            string name;
+            byte age;
             Person[] arrPerson = new Person[3];
             for (int i = 0; i < arrPerson.Length; i++)
             {
-                string name;
-                byte age;
                 while (true)
                 {
                     Console.WriteLine("Enter the name of the user: ");
@@ -46,7 +45,6 @@ namespace homeWork10
                     Age = age
                 };
 
-                arrPerson[i].AgeFourYears();
                 Console.WriteLine(arrPerson[i].Discription);
             }
             Console.ReadKey();
