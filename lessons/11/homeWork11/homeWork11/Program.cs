@@ -8,11 +8,14 @@ namespace homeWork11
         {
             Reminderltem firstSignal = new Reminderltem(
                 new DateTimeOffset(2021, 04, 17, 20, 20, 34, TimeSpan.Zero),
-                "WAKE UP"
+                "You overslept the alarm clock!!!"
                 );
-           
-            Console.WriteLine(firstSignal.WriteProperties);
-            
+            Reminderltem secondSignal = new Reminderltem(
+                new DateTimeOffset(2021, 04, 19, 20, 20, 34, TimeSpan.Zero),
+                "There is a time before the alarm clock"
+                );
+            firstSignal.WriteProperties();
+            secondSignal.WriteProperties();
         }
     }
 }
