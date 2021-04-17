@@ -11,10 +11,12 @@ namespace homeWork11
         public bool IsOutdated =>
             TimeToAlarm >= TimeSpan.Zero;
         
-        public string WriteProperties =>
-            $"The alarm clock is set for: {AlarmDate}, {AlarmMessange}!!!," +
+        public void WriteProperties() 
+        {
+            Console.WriteLine($"The alarm clock is set for: {AlarmDate}, {AlarmMessange}," +
             $" time to wake up:{TimeToAlarm.Days}:{TimeToAlarm.Hours}:{TimeToAlarm.Minutes}," +
-            $" {IsOutdated}";
+            $" {IsOutdated}");
+        }
 
         public Reminderltem(DateTimeOffset alarmDate, string alarmMessange)
         {
