@@ -16,10 +16,11 @@ namespace homeWork12
         }
         public override void WriteProperties()
         {
-            Console.WriteLine($"PhoneReminderItem:" +
-                $" \nThe alarm clock is set for: {AlarmDate}, {AlarmMessange}," +
-                $" time to wake up:{TimeToAlarm.Days}:{TimeToAlarm.Hours}:{TimeToAlarm.Minutes}," +
-                $" {IsOutdated} and phone number: {PhoneNumber}");
+            base.WriteProperties();
+            Console.WriteLine(
+                $"PhoneReminderItem:" +
+                $" {IsOutdated} and phone number: {PhoneNumber}"
+                );
         }
     }
 }
