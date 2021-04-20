@@ -8,6 +8,7 @@ namespace homeWork12
         public string AccountName { get; set; }
         public override void WriteProperties()
         {
+            base.WriteProperties();
             Console.WriteLine($"ChatReminderItem:" +
                 $" \n  Chat name: {ChatName}" +
                 $" and account name: {AccountName}");
