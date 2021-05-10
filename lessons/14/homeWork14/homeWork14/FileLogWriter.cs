@@ -5,23 +5,19 @@ namespace homeWork14
 {
     class FileLogWriter : ILogWriter
     {
-        public string MessageType { get; set; }
         public void LogInfo(string message)
         {
-            MessageType = "Info";
-            File.AppendAllText("somefile.txt", $"{DateTimeOffset.Now} {MessageType} {message}\n");
+            File.AppendAllText("somefile.txt", $"{DateTimeOffset.Now} {"Info"} {message}\n");
         }
 
         public void LogWarning(string message)
         {
-            MessageType = "Warning";
-            File.AppendAllText("somefile.txt", $"{DateTimeOffset.Now} {MessageType} {message}\n");
+            File.AppendAllText("somefile.txt", $"{DateTimeOffset.Now} {"Warning"} {message}\n");
         }
 
         public void LogError(string message)
         {
-            MessageType = "Error";
-            File.AppendAllText("somefile.txt", $"{DateTimeOffset.Now} {MessageType} {message}\n");
+            File.AppendAllText("somefile.txt", $"{DateTimeOffset.Now} {"Error"} {message}\n");
         }
     }
 }
