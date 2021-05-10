@@ -12,13 +12,13 @@ namespace homeWork14
             c.LogInfo("LOOL");
             c.LogWarning("Keke");
             c.LogError("SOS");
-
+            ///////////////////////////////////////////
             FileLogWriter f = new FileLogWriter();
             f.LogError("LOL");
             f.LogInfo("Hello World");
             f.LogWarning("Salam");
-
-            MultipleLogWriter m = new MultipleLogWriter(new List<MultipleLogWriter> { });
+            ///////////////////////////////////////////
+            MultipleLogWriter m = new MultipleLogWriter(new List<ILogWriter> {});
             m.LogError("LOL");
             m.LogInfo("KOLYA");
             m.LogWarning("SAYOP");
